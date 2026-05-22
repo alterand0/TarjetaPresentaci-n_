@@ -1,440 +1,679 @@
+<!-- 
+INSTRUCCIONES:
+1. Guarda este archivo como index.html
+2. Sube también:
+   - profile.jpg  -> foto de perfil de LinkedIn
+   - cover.jpg    -> portada/banner de LinkedIn
+3. Publica el repositorio en GitHub Pages
+-->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Maria Fernanda Roncancio | Oracle LATAM</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --oracle-red: #F80000;
-      --oracle-dark: #161513;
-      --oracle-gray: #F5F5F5;
-      --text-gray: #5E5E5E;
-      --white: #FFFFFF;
-      --border: rgba(0,0,0,0.08);
+
+    :root{
+      --oracle-red:#F80000;
+      --black:#161513;
+      --gray:#6B6B6B;
+      --light:#F5F5F5;
+      --white:#FFFFFF;
+      --border:rgba(0,0,0,.08);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--white);
-      color: var(--oracle-dark);
-      line-height: 1.6;
-      overflow-x: hidden;
+    html{
+      scroll-behavior:smooth;
     }
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 80px 8%;
+    body{
+      font-family:'Inter',sans-serif;
+      color:var(--black);
+      background:white;
+      overflow-x:hidden;
+    }
+
+    /* NAV */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:1000;
+      backdrop-filter:blur(16px);
+      background:rgba(255,255,255,.7);
+      border-bottom:1px solid rgba(255,255,255,.2);
+    }
+
+    .nav-container{
+      max-width:1400px;
+      margin:auto;
+      padding:20px 6%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .oracle-logo{
+      color:var(--oracle-red);
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:-1px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:var(--black);
+      font-size:15px;
+      font-weight:500;
+      transition:.3s;
+    }
+
+    .nav-links a:hover{
+      color:var(--oracle-red);
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+    }
+
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      z-index:-2;
+    }
+
+    .hero-bg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:brightness(.45);
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
       background:
-        radial-gradient(circle at top right, rgba(248,0,0,0.08), transparent 25%),
-        linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%);
-      position: relative;
+      linear-gradient(
+      135deg,
+      rgba(0,0,0,.72),
+      rgba(0,0,0,.45)
+      );
+      z-index:-1;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -120px;
-      top: 0;
-      width: 400px;
-      height: 400px;
-      background: var(--oracle-red);
-      opacity: 0.04;
-      border-radius: 50%;
-      filter: blur(10px);
+    .hero-content{
+      max-width:1400px;
+      margin:auto;
+      padding:140px 6% 80px;
+      width:100%;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:80px;
+      align-items:center;
     }
 
-    .container {
-      max-width: 1300px;
-      width: 100%;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 80px;
-      align-items: center;
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      backdrop-filter:blur(10px);
+      color:white;
+      margin-bottom:30px;
+      font-size:14px;
+      font-weight:600;
+      border:1px solid rgba(255,255,255,.15);
     }
 
-    .tag {
-      display: inline-block;
-      padding: 8px 14px;
-      background: rgba(248,0,0,0.08);
-      color: var(--oracle-red);
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 24px;
+    h1{
+      color:white;
+      font-size:clamp(58px,8vw,110px);
+      line-height:.92;
+      letter-spacing:-5px;
+      margin-bottom:28px;
+      font-weight:800;
     }
 
-    h1 {
-      font-size: clamp(42px, 6vw, 82px);
-      line-height: 0.95;
-      letter-spacing: -3px;
-      margin-bottom: 24px;
-      font-weight: 700;
+    .subtitle{
+      color:rgba(255,255,255,.82);
+      font-size:22px;
+      max-width:760px;
+      margin-bottom:30px;
+      line-height:1.5;
     }
 
-    .subtitle {
-      font-size: 20px;
-      color: var(--text-gray);
-      max-width: 700px;
-      margin-bottom: 32px;
-      font-weight: 400;
+    .description{
+      color:rgba(255,255,255,.72);
+      font-size:18px;
+      max-width:720px;
+      margin-bottom:42px;
+      line-height:1.8;
     }
 
-    .description {
-      font-size: 18px;
-      color: #3D3D3D;
-      max-width: 760px;
-      margin-bottom: 40px;
+    .buttons{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
     }
 
-    .buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
+    .btn{
+      text-decoration:none;
+      padding:16px 26px;
+      border-radius:14px;
+      font-weight:600;
+      transition:.35s;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
     }
 
-    .btn {
-      text-decoration: none;
-      padding: 16px 24px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    .btn-primary{
+      background:var(--oracle-red);
+      color:white;
     }
 
-    .btn-primary {
-      background: var(--oracle-red);
-      color: white;
+    .btn-primary:hover{
+      transform:translateY(-3px);
+      box-shadow:0 18px 35px rgba(248,0,0,.28);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(248,0,0,0.2);
+    .btn-secondary{
+      background:rgba(255,255,255,.12);
+      color:white;
+      border:1px solid rgba(255,255,255,.18);
+      backdrop-filter:blur(14px);
     }
 
-    .btn-secondary {
-      border: 1px solid var(--border);
-      color: var(--oracle-dark);
-      background: white;
+    .btn-secondary:hover{
+      background:rgba(255,255,255,.18);
     }
 
-    .btn-secondary:hover {
-      background: #fafafa;
+    /* PROFILE CARD */
+
+    .profile-card{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(24px);
+      border-radius:34px;
+      padding:34px;
+      color:white;
+      position:relative;
+      overflow:hidden;
     }
 
-    .profile-card {
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.4);
-      border-radius: 32px;
-      padding: 40px;
-      box-shadow:
-        0 10px 40px rgba(0,0,0,0.05),
-        0 2px 10px rgba(0,0,0,0.03);
+    .profile-card::before{
+      content:"";
+      position:absolute;
+      width:300px;
+      height:300px;
+      background:rgba(248,0,0,.16);
+      border-radius:50%;
+      top:-120px;
+      right:-120px;
+      filter:blur(20px);
     }
 
-    .profile-image {
-      width: 140px;
-      height: 140px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, var(--oracle-red), #ff5b5b);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 24px;
+    .profile-photo{
+      width:140px;
+      height:140px;
+      border-radius:28px;
+      overflow:hidden;
+      border:4px solid rgba(255,255,255,.18);
+      margin-bottom:24px;
+      position:relative;
+      z-index:2;
     }
 
-    .profile-card h2 {
-      font-size: 28px;
-      margin-bottom: 12px;
-      line-height: 1.1;
+    .profile-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
 
-    .profile-card p {
-      color: var(--text-gray);
-      margin-bottom: 20px;
+    .profile-card h2{
+      font-size:30px;
+      line-height:1.1;
+      margin-bottom:14px;
+      position:relative;
+      z-index:2;
     }
 
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
+    .profile-card p{
+      color:rgba(255,255,255,.72);
+      margin-bottom:18px;
+      position:relative;
+      z-index:2;
     }
 
-    .skill {
-      padding: 10px 14px;
-      background: var(--oracle-gray);
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 500;
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:28px;
+      position:relative;
+      z-index:2;
     }
 
-    section {
-      padding: 120px 8%;
+    .skill{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.1);
+      font-size:13px;
+      font-weight:500;
     }
 
-    .section-title {
-      font-size: 48px;
-      margin-bottom: 20px;
-      letter-spacing: -2px;
+    /* SECTIONS */
+
+    section{
+      padding:120px 6%;
     }
 
-    .section-subtitle {
-      color: var(--text-gray);
-      margin-bottom: 60px;
-      max-width: 700px;
-      font-size: 18px;
+    .container{
+      max-width:1300px;
+      margin:auto;
     }
 
-    .timeline {
-      display: grid;
-      gap: 32px;
+    .section-label{
+      color:var(--oracle-red);
+      font-weight:700;
+      margin-bottom:18px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-size:13px;
     }
 
-    .timeline-item {
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 32px;
-      transition: 0.3s ease;
-      background: white;
+    .section-title{
+      font-size:56px;
+      letter-spacing:-3px;
+      margin-bottom:18px;
+      line-height:1;
     }
 
-    .timeline-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    .section-subtitle{
+      color:var(--gray);
+      max-width:760px;
+      font-size:19px;
+      line-height:1.7;
+      margin-bottom:60px;
     }
 
-    .timeline-item h3 {
-      font-size: 24px;
-      margin-bottom: 8px;
+    /* EXPERIENCE */
+
+    .timeline{
+      display:grid;
+      gap:28px;
     }
 
-    .timeline-item .company {
-      color: var(--oracle-red);
-      font-weight: 600;
-      margin-bottom: 16px;
+    .timeline-card{
+      border:1px solid var(--border);
+      border-radius:30px;
+      padding:40px;
+      transition:.35s;
+      background:white;
     }
 
-    .timeline-item ul {
-      padding-left: 20px;
-      color: var(--text-gray);
+    .timeline-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 20px 40px rgba(0,0,0,.06);
     }
 
-    .timeline-item li {
-      margin-bottom: 10px;
+    .timeline-card h3{
+      font-size:30px;
+      margin-bottom:10px;
+      letter-spacing:-1px;
     }
 
-    .footer {
-      padding: 60px 8%;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
+    .company{
+      color:var(--oracle-red);
+      font-weight:700;
+      margin-bottom:24px;
     }
 
-    .oracle-mark {
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--oracle-red);
-      letter-spacing: -1px;
+    .timeline-card ul{
+      padding-left:20px;
+      color:var(--gray);
     }
 
-    @media (max-width: 980px) {
-      .container {
-        grid-template-columns: 1fr;
+    .timeline-card li{
+      margin-bottom:14px;
+      line-height:1.7;
+    }
+
+    /* EDUCATION */
+
+    .education-card{
+      background:var(--light);
+      padding:50px;
+      border-radius:30px;
+    }
+
+    .education-card h3{
+      font-size:34px;
+      margin-bottom:12px;
+      letter-spacing:-1px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:60px 6%;
+      border-top:1px solid var(--border);
+    }
+
+    .footer-container{
+      max-width:1300px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .footer-text{
+      color:var(--gray);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:980px){
+
+      .hero-content{
+        grid-template-columns:1fr;
       }
 
-      .hero {
-        padding-top: 120px;
+      .profile-card{
+        max-width:520px;
       }
 
-      .profile-card {
-        order: -1;
+      h1{
+        font-size:64px;
       }
 
-      h1 {
-        font-size: 52px;
+      .section-title{
+        font-size:42px;
       }
 
-      .section-title {
-        font-size: 38px;
+      .nav-links{
+        display:none;
       }
+
     }
+
   </style>
 </head>
 
 <body>
 
-  <section class="hero">
-    <div class="container">
+  <!-- NAV -->
+
+  <nav>
+    <div class="nav-container">
+
+      <div class="oracle-logo">
+        ORACLE
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="https://www.linkedin.com/in/maria-fernanda-roncancio-bare%C3%B1o/" target="_blank">
+          LinkedIn
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero" id="about">
+
+    <div class="hero-bg">
+      <img src="cover.jpg" alt="LinkedIn Cover">
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
 
       <div>
-        <div class="tag">Oracle Latin America</div>
+
+        <div class="tag">
+          Oracle Latin America · Communication Specialist
+        </div>
 
         <h1>
-          Maria Fernanda<br>
-          Roncancio Bareño
+          Maria<br>
+          Fernanda<br>
+          Roncancio
         </h1>
 
         <p class="subtitle">
-          Communication Specialist · Storyteller · Authenticity Advocate · Tech, AI & Cloud
+          Storyteller · Authenticity Advocate · Tech, AI & Cloud · Strategic Communication
         </p>
 
         <p class="description">
-          Especialista en comunicación para Oracle Latinoamérica con enfoque en storytelling,
-          PR, posicionamiento ejecutivo y comunicación 360°. Combina creatividad,
-          estrategia y autenticidad para construir conexiones relevantes entre tecnología,
-          personas y marcas.
+          Especialista en comunicación para Oracle Latinoamérica con experiencia en PR,
+          comunicación interna, posicionamiento ejecutivo y storytelling estratégico.
+          Combina creatividad, estrategia y autenticidad para conectar personas,
+          tecnología y cultura en entornos regionales de alto impacto.
         </p>
 
         <div class="buttons">
-          <a href="https://www.linkedin.com/in/maria-fernanda-roncancio-bareño"
-             target="_blank"
-             class="btn btn-primary">
-            Ver LinkedIn
+
+          <a
+            href="https://www.linkedin.com/in/maria-fernanda-roncancio-bare%C3%B1o/"
+            target="_blank"
+            class="btn btn-primary"
+          >
+            View LinkedIn
           </a>
 
           <a href="#experience" class="btn btn-secondary">
-            Ver experiencia
+            Explore Experience
           </a>
+
         </div>
+
       </div>
 
       <div class="profile-card">
 
-        <div class="profile-image">
-          MR
+        <div class="profile-photo">
+          <img src="profile.jpg" alt="Maria Fernanda Roncancio">
         </div>
 
-        <h2>Communication Specialist Oracle LATAM</h2>
+        <h2>
+          Communication Specialist Oracle LATAM
+        </h2>
 
         <p>
           Bogotá, Colombia
         </p>
 
         <p>
-          Administradora de empresas apasionada por la comunicación,
-          la innovación y las historias auténticas.
+          Business administrator passionate about communication,
+          innovation, storytelling and human-centered strategy.
         </p>
 
-        <div class="skill-list">
-          <div class="skill">Digital Strategy</div>
-          <div class="skill">Executive Positioning</div>
+        <div class="skills">
+
           <div class="skill">PR</div>
-          <div class="skill">Internal Communication</div>
+          <div class="skill">Executive Positioning</div>
           <div class="skill">Storytelling</div>
+          <div class="skill">Internal Communication</div>
           <div class="skill">AI & Tech</div>
+          <div class="skill">Brand Strategy</div>
+
         </div>
 
       </div>
 
     </div>
+
   </section>
+
+  <!-- EXPERIENCE -->
 
   <section id="experience">
 
-    <h2 class="section-title">
-      Experience
-    </h2>
+    <div class="container">
 
-    <p class="section-subtitle">
-      Liderando comunicación estratégica, posicionamiento ejecutivo
-      y proyectos regionales en Latinoamérica.
-    </p>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <h3>Communication Specialist</h3>
-        <div class="company">Oracle · 2024 — Present</div>
-
-        <ul>
-          <li>Gestión de comunicación 360°: PR, comunicación interna y posicionamiento ejecutivo.</li>
-          <li>Desarrollo de marca personal y entrenamiento de voceros.</li>
-          <li>Organización de eventos virtuales, híbridos y presenciales a nivel regional.</li>
-          <li>Cobertura de eventos para redes sociales, canales internos y prensa.</li>
-          <li>Creación de CommOn, curso de comunicación para Oracle Colombia y LATAM.</li>
-        </ul>
+      <div class="section-label">
+        Experience
       </div>
 
-      <div class="timeline-item">
-        <h3>GenO Program</h3>
-        <div class="company">Oracle · 2023 — 2024</div>
+      <h2 class="section-title">
+        Strategic communication across Latin America.
+      </h2>
 
-        <ul>
-          <li>Rotación en comunicación interna y ventas Tech.</li>
-          <li>Participación en proyectos estratégicos y Data Science.</li>
-          <li>Impulso de iniciativas de innovación y colaboración interdisciplinaria.</li>
-          <li>Participación activa en programas de voluntariado.</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Director de Desarrollo Organizativo</h3>
-        <div class="company">Rosemark · 2022 — Present</div>
-
-        <ul>
-          <li>Liderazgo organizacional en empresa familiar exportadora de rosas.</li>
-          <li>Desarrollo estratégico y fortalecimiento cultural.</li>
-          <li>Conexión entre comunicación, negocio y propósito.</li>
-        </ul>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section>
-
-    <h2 class="section-title">
-      Education
-    </h2>
-
-    <p class="section-subtitle">
-      Formación en negocios, marketing y comunicación estratégica.
-    </p>
-
-    <div class="timeline-item">
-      <h3>Pontificia Universidad Javeriana</h3>
-      <div class="company">
-        Bachelor of Business Administration · Marketing
-      </div>
-
-      <p style="margin-top: 16px; color: var(--text-gray);">
-        2019 — 2024
+      <p class="section-subtitle">
+        Experience leading regional communication initiatives,
+        executive positioning and storytelling strategies for technology,
+        innovation and organizational culture.
       </p>
+
+      <div class="timeline">
+
+        <div class="timeline-card">
+
+          <h3>Communication Specialist</h3>
+
+          <div class="company">
+            Oracle · 2024 — Present
+          </div>
+
+          <ul>
+            <li>360° communication management including PR, internal communication and executive positioning.</li>
+            <li>Development of executive personal branding and spokesperson training.</li>
+            <li>Regional virtual, hybrid and in-person event communication.</li>
+            <li>Social media and press coverage for strategic events.</li>
+            <li>Creator of CommOn, Oracle Colombia communication education initiative expanding into LATAM.</li>
+          </ul>
+
+        </div>
+
+        <div class="timeline-card">
+
+          <h3>GenO Program</h3>
+
+          <div class="company">
+            Oracle · 2023 — 2024
+          </div>
+
+          <ul>
+            <li>Rotations in internal communication and Tech Sales.</li>
+            <li>Participation in strategic initiatives with Data Science and innovation teams.</li>
+            <li>Cross-functional collaboration across multiple Oracle business areas.</li>
+            <li>Active participation in volunteering and social impact programs.</li>
+          </ul>
+
+        </div>
+
+        <div class="timeline-card">
+
+          <h3>Director de Desarrollo Organizativo</h3>
+
+          <div class="company">
+            Rosemark · 2022 — Present
+          </div>
+
+          <ul>
+            <li>Leadership within a family-owned rose export company.</li>
+            <li>Organizational development and strategic communication.</li>
+            <li>Connection between business growth, culture and human storytelling.</li>
+          </ul>
+
+        </div>
+
+      </div>
+
     </div>
 
   </section>
 
-  <footer class="footer">
+  <!-- EDUCATION -->
 
-    <div class="oracle-mark">
-      ORACLE
+  <section id="education">
+
+    <div class="container">
+
+      <div class="section-label">
+        Education
+      </div>
+
+      <h2 class="section-title">
+        Business, marketing & communication.
+      </h2>
+
+      <p class="section-subtitle">
+        Academic background focused on marketing, strategic thinking
+        and business administration.
+      </p>
+
+      <div class="education-card">
+
+        <h3>
+          Pontificia Universidad Javeriana
+        </h3>
+
+        <div class="company">
+          Bachelor of Business Administration · Marketing
+        </div>
+
+        <p style="color:var(--gray); font-size:18px;">
+          2019 — 2024
+        </p>
+
+      </div>
+
     </div>
 
-    <div style="color: var(--text-gray);">
-      Designed for GitHub Pages · Executive Profile Experience
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-container">
+
+      <div class="oracle-logo">
+        ORACLE
+      </div>
+
+      <div class="footer-text">
+        Executive Digital Profile · GitHub Pages Experience
+      </div>
+
     </div>
 
   </footer>
