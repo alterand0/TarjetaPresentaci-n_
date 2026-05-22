@@ -1,456 +1,464 @@
-<!-- 
-INSTRUCCIONES:
-1. Guarda este archivo como index.html
-2. Sube también:
-   - profile.jpg  -> foto de perfil de LinkedIn
-   - cover.jpg    -> portada/banner de LinkedIn
-3. Publica el repositorio en GitHub Pages
--->
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Maria Fernanda Roncancio | Oracle LATAM</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <style>
-
-    :root{
-      --oracle-red:#F80000;
-      --black:#161513;
-      --gray:#6B6B6B;
-      --light:#F5F5F5;
-      --white:#FFFFFF;
-      --border:rgba(0,0,0,.08);
+    :root {
+      --oracle-red: #F80000;
+      --black: #161513;
+      --gray: #6B6B6B;
+      --light: #F5F5F5;
+      --white: #FFFFFF;
+      --border: rgba(255, 255, 255, 0.12);
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      font-family:'Inter',sans-serif;
-      color:var(--black);
-      background:white;
-      overflow-x:hidden;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: white;
+      overflow-x: hidden;
     }
 
-    /* NAV */
+    /* NAVBAR */
 
-    nav{
-      position:fixed;
-      top:0;
-      width:100%;
-      z-index:1000;
-      backdrop-filter:blur(16px);
-      background:rgba(255,255,255,.7);
-      border-bottom:1px solid rgba(255,255,255,.2);
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(0, 0, 0, 0.35);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .nav-container{
-      max-width:1400px;
-      margin:auto;
-      padding:20px 6%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+    .nav-container {
+      max-width: 1400px;
+      margin: auto;
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .oracle-logo{
-      color:var(--oracle-red);
-      font-size:28px;
-      font-weight:800;
-      letter-spacing:-1px;
+    .oracle-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
     }
 
-    .nav-links{
-      display:flex;
-      gap:28px;
+    .nav-links {
+      display: flex;
+      gap: 28px;
     }
 
-    .nav-links a{
-      text-decoration:none;
-      color:var(--black);
-      font-size:15px;
-      font-weight:500;
-      transition:.3s;
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 14px;
+      font-weight: 500;
+      transition: .3s;
     }
 
-    .nav-links a:hover{
-      color:var(--oracle-red);
+    .nav-links a:hover {
+      color: white;
     }
 
     /* HERO */
 
-    .hero{
-      min-height:100vh;
-      position:relative;
-      display:flex;
-      align-items:center;
-      overflow:hidden;
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
     }
 
-    .hero-bg{
-      position:absolute;
-      inset:0;
-      z-index:-2;
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
     }
 
-    .hero-bg img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      filter:brightness(.45);
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.35);
+      transform: scale(1.03);
     }
 
-    .overlay{
-      position:absolute;
-      inset:0;
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
       background:
-      linear-gradient(
-      135deg,
-      rgba(0,0,0,.72),
-      rgba(0,0,0,.45)
-      );
-      z-index:-1;
+        linear-gradient(to right,
+          rgba(0, 0, 0, 0.82),
+          rgba(0, 0, 0, 0.55)),
+        linear-gradient(to top,
+          rgba(0, 0, 0, 0.85),
+          rgba(0, 0, 0, 0.15));
     }
 
-    .hero-content{
-      max-width:1400px;
-      margin:auto;
-      padding:140px 6% 80px;
-      width:100%;
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:80px;
-      align-items:center;
+    .hero-glow {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: rgba(248, 0, 0, 0.18);
+      filter: blur(120px);
+      top: -200px;
+      right: -180px;
+      z-index: -1;
     }
 
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 18px;
-      border-radius:999px;
-      background:rgba(255,255,255,.12);
-      backdrop-filter:blur(10px);
-      color:white;
-      margin-bottom:30px;
-      font-size:14px;
-      font-weight:600;
-      border:1px solid rgba(255,255,255,.15);
+    .hero-content {
+      max-width: 1400px;
+      margin: auto;
+      width: 100%;
+      padding: 140px 6% 80px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 80px;
+      align-items: center;
     }
 
-    h1{
-      color:white;
-      font-size:clamp(58px,8vw,110px);
-      line-height:.92;
-      letter-spacing:-5px;
-      margin-bottom:28px;
-      font-weight:800;
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 30px;
     }
 
-    .subtitle{
-      color:rgba(255,255,255,.82);
-      font-size:22px;
-      max-width:760px;
-      margin-bottom:30px;
-      line-height:1.5;
+    h1 {
+      font-size: clamp(64px, 8vw, 118px);
+      line-height: .92;
+      letter-spacing: -5px;
+      font-weight: 800;
+      margin-bottom: 28px;
     }
 
-    .description{
-      color:rgba(255,255,255,.72);
-      font-size:18px;
-      max-width:720px;
-      margin-bottom:42px;
-      line-height:1.8;
+    .subtitle {
+      font-size: 22px;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 720px;
+      margin-bottom: 28px;
+      line-height: 1.5;
     }
 
-    .buttons{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
+    .description {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 720px;
+      line-height: 1.8;
+      margin-bottom: 42px;
     }
 
-    .btn{
-      text-decoration:none;
-      padding:16px 26px;
-      border-radius:14px;
-      font-weight:600;
-      transition:.35s;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
+    .buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
-    .btn-primary{
-      background:var(--oracle-red);
-      color:white;
+    .btn {
+      padding: 16px 26px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .35s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .btn-primary:hover{
-      transform:translateY(-3px);
-      box-shadow:0 18px 35px rgba(248,0,0,.28);
+    .btn-primary {
+      background: var(--oracle-red);
+      color: white;
     }
 
-    .btn-secondary{
-      background:rgba(255,255,255,.12);
-      color:white;
-      border:1px solid rgba(255,255,255,.18);
-      backdrop-filter:blur(14px);
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 35px rgba(248, 0, 0, .28);
     }
 
-    .btn-secondary:hover{
-      background:rgba(255,255,255,.18);
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: white;
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
     }
 
     /* PROFILE CARD */
 
-    .profile-card{
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.12);
-      backdrop-filter:blur(24px);
-      border-radius:34px;
-      padding:34px;
-      color:white;
-      position:relative;
-      overflow:hidden;
+    .profile-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      border-radius: 34px;
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .profile-card::before{
-      content:"";
-      position:absolute;
-      width:300px;
-      height:300px;
-      background:rgba(248,0,0,.16);
-      border-radius:50%;
-      top:-120px;
-      right:-120px;
-      filter:blur(20px);
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      background: rgba(248, 0, 0, 0.14);
+      border-radius: 50%;
+      top: -120px;
+      right: -120px;
+      filter: blur(20px);
     }
 
-    .profile-photo{
-      width:140px;
-      height:140px;
-      border-radius:28px;
-      overflow:hidden;
-      border:4px solid rgba(255,255,255,.18);
-      margin-bottom:24px;
-      position:relative;
-      z-index:2;
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 28px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      border: 4px solid rgba(255, 255, 255, 0.12);
+      position: relative;
+      z-index: 2;
     }
 
-    .profile-photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .profile-card h2{
-      font-size:30px;
-      line-height:1.1;
-      margin-bottom:14px;
-      position:relative;
-      z-index:2;
+    .profile-card h2 {
+      font-size: 30px;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 2;
     }
 
-    .profile-card p{
-      color:rgba(255,255,255,.72);
-      margin-bottom:18px;
-      position:relative;
-      z-index:2;
+    .profile-card p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 18px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 2;
     }
 
-    .skills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:28px;
-      position:relative;
-      z-index:2;
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      position: relative;
+      z-index: 2;
     }
 
-    .skill{
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.1);
-      font-size:13px;
-      font-weight:500;
+    .skill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 13px;
+      font-weight: 500;
     }
 
     /* SECTIONS */
 
-    section{
-      padding:120px 6%;
+    section {
+      padding: 120px 6%;
     }
 
-    .container{
-      max-width:1300px;
-      margin:auto;
+    .container {
+      max-width: 1300px;
+      margin: auto;
     }
 
-    .section-label{
-      color:var(--oracle-red);
-      font-weight:700;
-      margin-bottom:18px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      font-size:13px;
+    .section-label {
+      color: var(--oracle-red);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
     }
 
-    .section-title{
-      font-size:56px;
-      letter-spacing:-3px;
-      margin-bottom:18px;
-      line-height:1;
+    .section-title {
+      font-size: 56px;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 20px;
     }
 
-    .section-subtitle{
-      color:var(--gray);
-      max-width:760px;
-      font-size:19px;
-      line-height:1.7;
-      margin-bottom:60px;
+    .section-subtitle {
+      max-width: 760px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 60px;
     }
 
     /* EXPERIENCE */
 
-    .timeline{
-      display:grid;
-      gap:28px;
+    .timeline {
+      display: grid;
+      gap: 28px;
     }
 
-    .timeline-card{
-      border:1px solid var(--border);
-      border-radius:30px;
-      padding:40px;
-      transition:.35s;
-      background:white;
+    .timeline-card {
+      background: #111111;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 28px;
+      padding: 40px;
+      transition: .35s;
     }
 
-    .timeline-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 20px 40px rgba(0,0,0,.06);
+    .timeline-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(248, 0, 0, 0.25);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
     }
 
-    .timeline-card h3{
-      font-size:30px;
-      margin-bottom:10px;
-      letter-spacing:-1px;
+    .timeline-card h3 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      letter-spacing: -1px;
     }
 
-    .company{
-      color:var(--oracle-red);
-      font-weight:700;
-      margin-bottom:24px;
+    .company {
+      color: var(--oracle-red);
+      font-weight: 700;
+      margin-bottom: 22px;
     }
 
-    .timeline-card ul{
-      padding-left:20px;
-      color:var(--gray);
+    .timeline-card ul {
+      padding-left: 18px;
+      color: rgba(255, 255, 255, 0.72);
     }
 
-    .timeline-card li{
-      margin-bottom:14px;
-      line-height:1.7;
+    .timeline-card li {
+      margin-bottom: 14px;
+      line-height: 1.7;
     }
 
     /* EDUCATION */
 
-    .education-card{
-      background:var(--light);
-      padding:50px;
-      border-radius:30px;
+    .education-card {
+      background: #111111;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 28px;
+      padding: 50px;
     }
 
-    .education-card h3{
-      font-size:34px;
-      margin-bottom:12px;
-      letter-spacing:-1px;
+    .education-card h3 {
+      font-size: 34px;
+      margin-bottom: 14px;
+      letter-spacing: -1px;
     }
 
     /* FOOTER */
 
-    footer{
-      padding:60px 6%;
-      border-top:1px solid var(--border);
+    footer {
+      padding: 60px 6%;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .footer-container{
-      max-width:1300px;
-      margin:auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:20px;
+    .footer-container {
+      max-width: 1300px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
-    .footer-text{
-      color:var(--gray);
+    .footer-text {
+      color: rgba(255, 255, 255, 0.55);
     }
 
     /* RESPONSIVE */
 
-    @media(max-width:980px){
+    @media(max-width:980px) {
 
-      .hero-content{
-        grid-template-columns:1fr;
+      .hero-content {
+        grid-template-columns: 1fr;
       }
 
-      .profile-card{
-        max-width:520px;
+      .profile-card {
+        max-width: 520px;
       }
 
-      h1{
-        font-size:64px;
+      h1 {
+        font-size: 70px;
       }
 
-      .section-title{
-        font-size:42px;
+      .section-title {
+        font-size: 42px;
       }
 
-      .nav-links{
-        display:none;
+      .nav-links {
+        display: none;
       }
-
     }
-
   </style>
 </head>
 
 <body>
 
-  <!-- NAV -->
+  <!-- NAVBAR -->
 
   <nav>
+
     <div class="nav-container">
 
       <div class="oracle-logo">
-        ORACLE
+        <img src="Oracle_logo.svg.png" alt="Oracle Logo">
       </div>
 
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
-        <a href="https://www.linkedin.com/in/maria-fernanda-roncancio-bare%C3%B1o/" target="_blank">
+
+        <a href="https://www.linkedin.com/in/maria-fernanda-roncancio-bare%C3%B1o/"
+          target="_blank">
           LinkedIn
         </a>
       </div>
 
     </div>
+
   </nav>
 
   <!-- HERO -->
@@ -461,9 +469,13 @@ INSTRUCCIONES:
       <img src="cover.jpg" alt="LinkedIn Cover">
     </div>
 
-    <div class="overlay"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-glow"></div>
 
     <div class="hero-content">
+
+      <!-- LEFT -->
 
       <div>
 
@@ -482,19 +494,17 @@ INSTRUCCIONES:
         </p>
 
         <p class="description">
-          Especialista en comunicación para Oracle Latinoamérica con experiencia en PR,
-          comunicación interna, posicionamiento ejecutivo y storytelling estratégico.
-          Combina creatividad, estrategia y autenticidad para conectar personas,
-          tecnología y cultura en entornos regionales de alto impacto.
+          Especialista en comunicación para Oracle Latinoamérica con experiencia
+          en PR, comunicación interna, posicionamiento ejecutivo y storytelling
+          estratégico. Combina creatividad, autenticidad y visión estratégica para
+          conectar personas, cultura y tecnología.
         </p>
 
         <div class="buttons">
 
-          <a
-            href="https://www.linkedin.com/in/maria-fernanda-roncancio-bare%C3%B1o/"
+          <a href="https://www.linkedin.com/in/maria-fernanda-roncancio-bare%C3%B1o/"
             target="_blank"
-            class="btn btn-primary"
-          >
+            class="btn btn-primary">
             View LinkedIn
           </a>
 
@@ -505,6 +515,8 @@ INSTRUCCIONES:
         </div>
 
       </div>
+
+      <!-- RIGHT -->
 
       <div class="profile-card">
 
@@ -521,8 +533,8 @@ INSTRUCCIONES:
         </p>
 
         <p>
-          Business administrator passionate about communication,
-          innovation, storytelling and human-centered strategy.
+          Business administrator passionate about storytelling,
+          innovation, strategic communication and human-centered experiences.
         </p>
 
         <div class="skills">
@@ -558,15 +570,17 @@ INSTRUCCIONES:
 
       <p class="section-subtitle">
         Experience leading regional communication initiatives,
-        executive positioning and storytelling strategies for technology,
-        innovation and organizational culture.
+        executive positioning and storytelling strategies for
+        technology, innovation and organizational culture.
       </p>
 
       <div class="timeline">
 
         <div class="timeline-card">
 
-          <h3>Communication Specialist</h3>
+          <h3>
+            Communication Specialist
+          </h3>
 
           <div class="company">
             Oracle · 2024 — Present
@@ -574,17 +588,23 @@ INSTRUCCIONES:
 
           <ul>
             <li>360° communication management including PR, internal communication and executive positioning.</li>
+
             <li>Development of executive personal branding and spokesperson training.</li>
+
             <li>Regional virtual, hybrid and in-person event communication.</li>
+
             <li>Social media and press coverage for strategic events.</li>
-            <li>Creator of CommOn, Oracle Colombia communication education initiative expanding into LATAM.</li>
+
+            <li>Creator of CommOn, Oracle Colombia communication initiative expanding into LATAM.</li>
           </ul>
 
         </div>
 
         <div class="timeline-card">
 
-          <h3>GenO Program</h3>
+          <h3>
+            GenO Program
+          </h3>
 
           <div class="company">
             Oracle · 2023 — 2024
@@ -592,8 +612,11 @@ INSTRUCCIONES:
 
           <ul>
             <li>Rotations in internal communication and Tech Sales.</li>
+
             <li>Participation in strategic initiatives with Data Science and innovation teams.</li>
-            <li>Cross-functional collaboration across multiple Oracle business areas.</li>
+
+            <li>Cross-functional collaboration across Oracle business areas.</li>
+
             <li>Active participation in volunteering and social impact programs.</li>
           </ul>
 
@@ -601,7 +624,9 @@ INSTRUCCIONES:
 
         <div class="timeline-card">
 
-          <h3>Director de Desarrollo Organizativo</h3>
+          <h3>
+            Director de Desarrollo Organizativo
+          </h3>
 
           <div class="company">
             Rosemark · 2022 — Present
@@ -609,7 +634,9 @@ INSTRUCCIONES:
 
           <ul>
             <li>Leadership within a family-owned rose export company.</li>
+
             <li>Organizational development and strategic communication.</li>
+
             <li>Connection between business growth, culture and human storytelling.</li>
           </ul>
 
@@ -636,8 +663,8 @@ INSTRUCCIONES:
       </h2>
 
       <p class="section-subtitle">
-        Academic background focused on marketing, strategic thinking
-        and business administration.
+        Academic background focused on marketing,
+        strategic thinking and business administration.
       </p>
 
       <div class="education-card">
@@ -650,7 +677,7 @@ INSTRUCCIONES:
           Bachelor of Business Administration · Marketing
         </div>
 
-        <p style="color:var(--gray); font-size:18px;">
+        <p style="color:rgba(255,255,255,.65); font-size:18px;">
           2019 — 2024
         </p>
 
@@ -667,7 +694,7 @@ INSTRUCCIONES:
     <div class="footer-container">
 
       <div class="oracle-logo">
-        ORACLE
+        <img src="Oracle_logo.svg.png" alt="Oracle Logo">
       </div>
 
       <div class="footer-text">
@@ -679,4 +706,5 @@ INSTRUCCIONES:
   </footer>
 
 </body>
+
 </html>
