@@ -1,710 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Maria Fernanda Roncancio | Oracle LATAM</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  <style>
-    :root {
-      --oracle-red: #F80000;
-      --black: #161513;
-      --gray: #6B6B6B;
-      --light: #F5F5F5;
-      --white: #FFFFFF;
-      --border: rgba(255, 255, 255, 0.12);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #000;
-      color: white;
-      overflow-x: hidden;
-    }
-
-    /* NAVBAR */
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      backdrop-filter: blur(16px);
-      background: rgba(0, 0, 0, 0.35);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .nav-container {
-      max-width: 1400px;
-      margin: auto;
-      padding: 20px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .oracle-logo img {
-      height: 28px;
-      width: auto;
-      display: block;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 14px;
-      font-weight: 500;
-      transition: .3s;
-    }
-
-    .nav-links a:hover {
-      color: white;
-    }
-
-    /* HERO */
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: -3;
-    }
-
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(.35);
-      transform: scale(1.03);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      background:
-        linear-gradient(to right,
-          rgba(0, 0, 0, 0.82),
-          rgba(0, 0, 0, 0.55)),
-        linear-gradient(to top,
-          rgba(0, 0, 0, 0.85),
-          rgba(0, 0, 0, 0.15));
-    }
-
-    .hero-glow {
-      position: absolute;
-      width: 700px;
-      height: 700px;
-      border-radius: 50%;
-      background: rgba(248, 0, 0, 0.18);
-      filter: blur(120px);
-      top: -200px;
-      right: -180px;
-      z-index: -1;
-    }
-
-    .hero-content {
-      max-width: 1400px;
-      margin: auto;
-      width: 100%;
-      padding: 140px 6% 80px;
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      color: white;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 30px;
-    }
-
-    h1 {
-      font-size: clamp(64px, 8vw, 118px);
-      line-height: .92;
-      letter-spacing: -5px;
-      font-weight: 800;
-      margin-bottom: 28px;
-    }
-
-    .subtitle {
-      font-size: 22px;
-      color: rgba(255, 255, 255, 0.8);
-      max-width: 720px;
-      margin-bottom: 28px;
-      line-height: 1.5;
-    }
-
-    .description {
-      font-size: 18px;
-      color: rgba(255, 255, 255, 0.68);
-      max-width: 720px;
-      line-height: 1.8;
-      margin-bottom: 42px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 16px 26px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: .35s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn-primary {
-      background: var(--oracle-red);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 35px rgba(248, 0, 0, .28);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: white;
-      backdrop-filter: blur(12px);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.14);
-    }
-
-    /* PROFILE CARD */
-
-    .profile-card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(20px);
-      border-radius: 34px;
-      padding: 34px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .profile-card::before {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      background: rgba(248, 0, 0, 0.14);
-      border-radius: 50%;
-      top: -120px;
-      right: -120px;
-      filter: blur(20px);
-    }
-
-    .profile-photo {
-      width: 150px;
-      height: 150px;
-      border-radius: 28px;
-      overflow: hidden;
-      margin-bottom: 24px;
-      border: 4px solid rgba(255, 255, 255, 0.12);
-      position: relative;
-      z-index: 2;
-    }
-
-    .profile-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .profile-card h2 {
-      font-size: 30px;
-      line-height: 1.1;
-      margin-bottom: 14px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .profile-card p {
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 18px;
-      line-height: 1.7;
-      position: relative;
-      z-index: 2;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .skill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    /* SECTIONS */
-
-    section {
-      padding: 120px 6%;
-    }
-
-    .container {
-      max-width: 1300px;
-      margin: auto;
-    }
-
-    .section-label {
-      color: var(--oracle-red);
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 1px;
-      margin-bottom: 18px;
-      text-transform: uppercase;
-    }
-
-    .section-title {
-      font-size: 56px;
-      letter-spacing: -3px;
-      line-height: 1;
-      margin-bottom: 20px;
-    }
-
-    .section-subtitle {
-      max-width: 760px;
-      color: rgba(255, 255, 255, 0.68);
-      font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 60px;
-    }
-
-    /* EXPERIENCE */
-
-    .timeline {
-      display: grid;
-      gap: 28px;
-    }
-
-    .timeline-card {
-      background: #111111;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 28px;
-      padding: 40px;
-      transition: .35s;
-    }
-
-    .timeline-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(248, 0, 0, 0.25);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
-    }
-
-    .timeline-card h3 {
-      font-size: 30px;
-      margin-bottom: 10px;
-      letter-spacing: -1px;
-    }
-
-    .company {
-      color: var(--oracle-red);
-      font-weight: 700;
-      margin-bottom: 22px;
-    }
-
-    .timeline-card ul {
-      padding-left: 18px;
-      color: rgba(255, 255, 255, 0.72);
-    }
-
-    .timeline-card li {
-      margin-bottom: 14px;
-      line-height: 1.7;
-    }
-
-    /* EDUCATION */
-
-    .education-card {
-      background: #111111;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 28px;
-      padding: 50px;
-    }
-
-    .education-card h3 {
-      font-size: 34px;
-      margin-bottom: 14px;
-      letter-spacing: -1px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      padding: 60px 6%;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .footer-container {
-      max-width: 1300px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-text {
-      color: rgba(255, 255, 255, 0.55);
-    }
-
-    /* RESPONSIVE */
-
-    @media(max-width:980px) {
-
-      .hero-content {
-        grid-template-columns: 1fr;
-      }
-
-      .profile-card {
-        max-width: 520px;
-      }
-
-      h1 {
-        font-size: 70px;
-      }
-
-      .section-title {
-        font-size: 42px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. Fernanda Roncancio - Portafolio</title>
+    <!-- Tailwind CSS vía CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configuración de Scroll Snap para el efecto FlowArt */
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+        section {
+            scroll-snap-align: start;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 4vw;
+            overflow: hidden;
+        }
+        /* Ajuste de tipografía para máxima fidelidad al estilo */
+        h1, h2 {
+            font-family: 'Inter', 'Helvetica', sans-serif;
+            font-weight: 900;
+        }
+        /* Eliminar scrollbar para una experiencia más inmersiva */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
+<body class="antialiased font-sans">
 
-<body>
-
-  <!-- NAVBAR -->
-
-  <nav>
-
-    <div class="nav-container">
-
-      <div class="oracle-logo">
-        <img src="Oracle_logo.svg.png" alt="Oracle Logo">
-      </div>
-
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-
-        <a href="https://www.linkedin.com/in/maria-fernanda-roncancio-bare%C3%B1o/"
-          target="_blank">
-          LinkedIn
-        </a>
-      </div>
-
-    </div>
-
-  </nav>
-
-  <!-- HERO -->
-
-  <section class="hero" id="about">
-
-    <div class="hero-bg">
-      <img src="cover.jpg" alt="LinkedIn Cover">
-    </div>
-
-    <div class="hero-overlay"></div>
-
-    <div class="hero-glow"></div>
-
-    <div class="hero-content">
-
-      <!-- LEFT -->
-
-      <div>
-
-        <div class="tag">
-          Oracle Latin America · Communication Specialist
+    <!-- SECCIÓN 01: QUIÉN SOY -->
+    <section style="background-color: #1e3c72; color: #fff;">
+        <p class="text-xs font-bold uppercase tracking-[0.2em]">01 — Perfil Profesional</p>
+        <hr class="my-[2vw] border-none border-t border-white/30" />
+        <div class="flex-grow flex items-center">
+            <h1 class="text-[clamp(3.5rem,10vw,12rem)] leading-[0.85] uppercase tracking-tighter">
+                M. Fernanda<br>Roncancio<br>Bareño
+            </h1>
         </div>
-
-        <h1>
-          Maria<br>
-          Fernanda<br>
-          Roncancio
-        </h1>
-
-        <p class="subtitle">
-          Storyteller · Authenticity Advocate · Tech, AI & Cloud · Strategic Communication
+        <hr class="my-[2vw] border-none border-t border-white/30" />
+        <p class="max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed">
+            Especialista en Comunicación y Estrategia de Audiencias. Transformando la interacción 
+            digital en El Tiempo Casa Editorial.
         </p>
+    </section>
 
-        <p class="description">
-          Especialista en comunicación para Oracle Latinoamérica con experiencia
-          en PR, comunicación interna, posicionamiento ejecutivo y storytelling
-          estratégico. Combina creatividad, autenticidad y visión estratégica para
-          conectar personas, cultura y tecnología.
+    <!-- SECCIÓN 02: LA MISIÓN / EL TIEMPO -->
+    <section style="background-color: #fd5200; color: #fff;">
+        <p class="text-xs font-bold uppercase tracking-[0.2em]">02 — El Tiempo / Arriba Bogotá</p>
+        <hr class="my-[2vw] border-none border-t border-black/20" />
+        <div class="flex-grow flex items-center">
+            <h2 class="text-[clamp(3.5rem,11vw,13rem)] leading-[0.85] uppercase tracking-tighter">
+                Digital<br>Strategy<br>Lead
+            </h2>
+        </div>
+        <hr class="my-[2vw] border-none border-t border-black/20" />
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-[3vw] mb-[2vw]">
+            <div>
+                <p class="mb-2 text-sm font-bold uppercase tracking-wider">Interacción</p>
+                <p class="text-[clamp(0.85rem,1.3vw,1.05rem)] opacity-90">Implementación de dinámicas en tiempo real y encuestas en YouTube.</p>
+            </div>
+            <div>
+                <p class="mb-2 text-sm font-bold uppercase tracking-wider">Crecimiento</p>
+                <p class="text-[clamp(0.85rem,1.3vw,1.05rem)] opacity-90">Análisis de métricas para optimizar contenido de Arriba Bogotá.</p>
+            </div>
+            <div>
+                <p class="mb-2 text-sm font-bold uppercase tracking-wider">Marca</p>
+                <p class="text-[clamp(0.85rem,1.3vw,1.05rem)] opacity-90">Gestión del tono formal y neutral corporativo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 03: SKILLS -->
+    <section style="background-color: #F5F0E8; color: #000;">
+        <p class="text-xs font-bold uppercase tracking-[0.2em]">03 — Skills & Core</p>
+        <hr class="my-[2vw] border-none border-t border-black/60" />
+        <div class="flex-grow flex items-center">
+            <h2 class="text-[clamp(3.5rem,12vw,14rem)] leading-[0.85] uppercase tracking-tighter">
+                Impact<br>Through<br>Data.
+            </h2>
+        </div>
+        <hr class="my-[2vw] border-none border-t border-black/60" />
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-[3vw]">
+            <div>
+                <p class="text-sm font-bold">01 — YouTube SEO</p>
+                <p class="text-[clamp(0.85rem,1.3vw,1.05rem)] opacity-75">Optimización de señales en vivo.</p>
+            </div>
+            <div>
+                <p class="text-sm font-bold">02 — Audiencias</p>
+                <p class="text-[clamp(0.85rem,1.3vw,1.05rem)] opacity-75">Segmentación en entornos de alto tráfico.</p>
+            </div>
+            <div>
+                <p class="text-sm font-bold">03 — Crisis Mgmt</p>
+                <p class="text-[clamp(0.85rem,1.3vw,1.05rem)] opacity-75">Gestión de reputación en vivo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 04: CONTACTO -->
+    <section style="background-color: #000; color: #fff;">
+        <p class="text-xs font-bold uppercase tracking-[0.2em]">04 — Let's Connect</p>
+        <hr class="my-[2vw] border-none border-t border-white/20" />
+        <div class="flex-grow flex flex-col justify-center">
+            <a href="https://www.linkedin.com/in/maria-fernanda-roncancio-bare%C3%B1o/" target="_blank" class="text-[clamp(2.5rem,6vw,8rem)] font-bold hover:italic transition-all">
+                LINKEDIN →
+            </a>
+            <a href="mailto:tu-correo@eltiempo.com" class="text-[clamp(2.5rem,6vw,8rem)] font-bold hover:italic transition-all">
+                EMAIL →
+            </a>
+        </div>
+        <hr class="my-[2vw] border-none border-t border-white/20" />
+        <p class="mt-auto max-w-[50ch] text-[clamp(1rem,2vw,1.5rem)] font-normal opacity-60">
+            © 2026 Portafolio Digital. Estrategia y Comunicación.
         </p>
-
-        <div class="buttons">
-
-          <a href="https://www.linkedin.com/in/maria-fernanda-roncancio-bare%C3%B1o/"
-            target="_blank"
-            class="btn btn-primary">
-            View LinkedIn
-          </a>
-
-          <a href="#experience" class="btn btn-secondary">
-            Explore Experience
-          </a>
-
-        </div>
-
-      </div>
-
-      <!-- RIGHT -->
-
-      <div class="profile-card">
-
-        <div class="profile-photo">
-          <img src="profile.png" alt="Maria Fernanda Roncancio">
-        </div>
-
-        <h2>
-          Communication Specialist Oracle LATAM
-        </h2>
-
-        <p>
-          Bogotá, Colombia
-        </p>
-
-        <p>
-          Business administrator passionate about storytelling,
-          innovation, strategic communication and human-centered experiences.
-        </p>
-
-        <div class="skills">
-
-          <div class="skill">PR</div>
-          <div class="skill">Executive Positioning</div>
-          <div class="skill">Storytelling</div>
-          <div class="skill">Internal Communication</div>
-          <div class="skill">AI & Tech</div>
-          <div class="skill">Brand Strategy</div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- EXPERIENCE -->
-
-  <section id="experience">
-
-    <div class="container">
-
-      <div class="section-label">
-        Experience
-      </div>
-
-      <h2 class="section-title">
-        Strategic communication across Latin America.
-      </h2>
-
-      <p class="section-subtitle">
-        Experience leading regional communication initiatives,
-        executive positioning and storytelling strategies for
-        technology, innovation and organizational culture.
-      </p>
-
-      <div class="timeline">
-
-        <div class="timeline-card">
-
-          <h3>
-            Communication Specialist
-          </h3>
-
-          <div class="company">
-            Oracle · 2024 — Present
-          </div>
-
-          <ul>
-            <li>360° communication management including PR, internal communication and executive positioning.</li>
-
-            <li>Development of executive personal branding and spokesperson training.</li>
-
-            <li>Regional virtual, hybrid and in-person event communication.</li>
-
-            <li>Social media and press coverage for strategic events.</li>
-
-            <li>Creator of CommOn, Oracle Colombia communication initiative expanding into LATAM.</li>
-          </ul>
-
-        </div>
-
-        <div class="timeline-card">
-
-          <h3>
-            GenO Program
-          </h3>
-
-          <div class="company">
-            Oracle · 2023 — 2024
-          </div>
-
-          <ul>
-            <li>Rotations in internal communication and Tech Sales.</li>
-
-            <li>Participation in strategic initiatives with Data Science and innovation teams.</li>
-
-            <li>Cross-functional collaboration across Oracle business areas.</li>
-
-            <li>Active participation in volunteering and social impact programs.</li>
-          </ul>
-
-        </div>
-
-        <div class="timeline-card">
-
-          <h3>
-            Director de Desarrollo Organizativo
-          </h3>
-
-          <div class="company">
-            Rosemark · 2022 — Present
-          </div>
-
-          <ul>
-            <li>Leadership within a family-owned rose export company.</li>
-
-            <li>Organizational development and strategic communication.</li>
-
-            <li>Connection between business growth, culture and human storytelling.</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- EDUCATION -->
-
-  <section id="education">
-
-    <div class="container">
-
-      <div class="section-label">
-        Education
-      </div>
-
-      <h2 class="section-title">
-        Business, marketing & communication.
-      </h2>
-
-      <p class="section-subtitle">
-        Academic background focused on marketing,
-        strategic thinking and business administration.
-      </p>
-
-      <div class="education-card">
-
-        <h3>
-          Pontificia Universidad Javeriana
-        </h3>
-
-        <div class="company">
-          Bachelor of Business Administration · Marketing
-        </div>
-
-        <p style="color:rgba(255,255,255,.65); font-size:18px;">
-          2019 — 2024
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="footer-container">
-
-      <div class="oracle-logo">
-        <img src="Oracle_logo.svg.png" alt="Oracle Logo">
-      </div>
-
-      <div class="footer-text">
-        Executive Digital Profile · GitHub Pages Experience
-      </div>
-
-    </div>
-
-  </footer>
+    </section>
 
 </body>
-
 </html>
