@@ -3,126 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M. Fernanda Roncancio - Portafolio</title>
-    <!-- Tailwind CSS vía CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Tarjeta de Presentación - María Fernanda Roncancio Bareño</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Configuración de Scroll Snap para el efecto FlowArt */
-        html {
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        section {
-            scroll-snap-align: start;
-            height: 100vh;
+
+        body {
+            background: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card-container {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            height: 120px;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            position: absolute;
+            bottom: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ccc;
+        }
+
+        .card-body {
+            padding: 70px 30px 30px 30px;
+        }
+
+        .name {
+            font-size: 24px;
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 15px;
+            color: #7f8c8d;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .divider {
+            height: 2px;
+            background-color: #f2f2f2;
+            width: 80%;
+            margin: 0 auto 20px auto;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .links-container {
             display: flex;
             flex-direction: column;
-            padding: 4vw;
-            overflow: hidden;
+            gap: 12px;
         }
-        /* Ajuste de tipografía para máxima fidelidad al estilo */
-        h1, h2 {
-            font-family: 'Inter', 'Helvetica', sans-serif;
-            font-weight: 900;
+
+        .btn-link {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
-        /* Eliminar scrollbar para una experiencia más inmersiva */
-        body::-webkit-scrollbar {
-            display: none;
+
+        .btn-link i {
+            font-size: 18px;
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
         }
-        body {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+
+        .btn-link:active {
+            transform: scale(0.98);
+        }
+
+        /* Colores de los botones */
+        .linkedin { background-color: #0077b5; }
+        .linkedin:hover { background-color: #006294; }
+
+        .email { background-color: #ea4335; }
+        .email:hover { background-color: #d3382b; }
+
+        .whatsapp { background-color: #25d366; }
+        .whatsapp:hover { background-color: #1ebd56; }
+
+        .phone { background-color: #34495e; }
+        .phone:hover { background-color: #2c3e50; }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #95a5a6;
         }
     </style>
 </head>
-<body class="antialiased font-sans">
+<body>
 
-    <!-- SECCIÓN 01: QUIÉN SOY -->
-    <section style="background-color: #1e3c72; color: #fff;">
-        <p class="text-xs font-bold uppercase tracking-[0.2em]">01 — Perfil Profesional</p>
-        <hr class="my-[2vw] border-none border-t border-white/30" />
-        <div class="flex-grow flex items-center">
-            <h1 class="text-[clamp(3.5rem,10vw,12rem)] leading-[0.85] uppercase tracking-tighter">
-                M. Fernanda<br>Roncancio<br>Bareño
-            </h1>
+    <div class="card-container">
+        <div class="card-header">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="María Fernanda Roncancio Bareño" class="profile-img">
         </div>
-        <hr class="my-[2vw] border-none border-t border-white/30" />
-        <p class="max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed">
-            Especialista en Comunicación y Estrategia de Audiencias. Transformando la interacción 
-            digital en El Tiempo Casa Editorial.
-        </p>
-    </section>
 
-    <!-- SECCIÓN 02: LA MISIÓN / EL TIEMPO -->
-    <section style="background-color: #fd5200; color: #fff;">
-        <p class="text-xs font-bold uppercase tracking-[0.2em]">02 — El Tiempo / Arriba Bogotá</p>
-        <hr class="my-[2vw] border-none border-t border-black/20" />
-        <div class="flex-grow flex items-center">
-            <h2 class="text-[clamp(3.5rem,11vw,13rem)] leading-[0.85] uppercase tracking-tighter">
-                Digital<br>Strategy<br>Lead
-            </h2>
-        </div>
-        <hr class="my-[2vw] border-none border-t border-black/20" />
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-[3vw] mb-[2vw]">
-            <div>
-                <p class="mb-2 text-sm font-bold uppercase tracking-wider">Interacción</p>
-                <p class="text-[clamp(0.85rem,1.3vw,1.05rem)] opacity-90">Implementación de dinámicas en tiempo real y encuestas en YouTube.</p>
-            </div>
-            <div>
-                <p class="mb-2 text-sm font-bold uppercase tracking-wider">Crecimiento</p>
-                <p class="text-[clamp(0.85rem,1.3vw,1.05rem)] opacity-90">Análisis de métricas para optimizar contenido de Arriba Bogotá.</p>
-            </div>
-            <div>
-                <p class="mb-2 text-sm font-bold uppercase tracking-wider">Marca</p>
-                <p class="text-[clamp(0.85rem,1.3vw,1.05rem)] opacity-90">Gestión del tono formal y neutral corporativo.</p>
-            </div>
-        </div>
-    </section>
+        <div class="card-body">
+            <h1 class="name">María Fernanda Roncancio B.</h1>
+            <p class="title">Especialista / Consultora Profesional</p>
+            
+            <div class="divider"></div>
+            
+            <p class="description">
+                Apasionada por el desarrollo profesional, la gestión estratégica y el cumplimiento de objetivos corporativos. Conéctate conmigo a través de mis canales oficiales.
+            </p>
 
-    <!-- SECCIÓN 03: SKILLS -->
-    <section style="background-color: #F5F0E8; color: #000;">
-        <p class="text-xs font-bold uppercase tracking-[0.2em]">03 — Skills & Core</p>
-        <hr class="my-[2vw] border-none border-t border-black/60" />
-        <div class="flex-grow flex items-center">
-            <h2 class="text-[clamp(3.5rem,12vw,14rem)] leading-[0.85] uppercase tracking-tighter">
-                Impact<br>Through<br>Data.
-            </h2>
-        </div>
-        <hr class="my-[2vw] border-none border-t border-black/60" />
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-[3vw]">
-            <div>
-                <p class="text-sm font-bold">01 — YouTube SEO</p>
-                <p class="text-[clamp(0.85rem,1.3vw,1.05rem)] opacity-75">Optimización de señales en vivo.</p>
-            </div>
-            <div>
-                <p class="text-sm font-bold">02 — Audiencias</p>
-                <p class="text-[clamp(0.85rem,1.3vw,1.05rem)] opacity-75">Segmentación en entornos de alto tráfico.</p>
-            </div>
-            <div>
-                <p class="text-sm font-bold">03 — Crisis Mgmt</p>
-                <p class="text-[clamp(0.85rem,1.3vw,1.05rem)] opacity-75">Gestión de reputación en vivo.</p>
-            </div>
-        </div>
-    </section>
+            <div class="links-container">
+                <a href="https://www.linkedin.com/in/maria-fernanda-roncancio-bare%C3%B1o/" target="_blank" class="btn-link linkedin">
+                    <i class="fab fa-linkedin"></i> Perfil de LinkedIn
+                </a>
 
-    <!-- SECCIÓN 04: CONTACTO -->
-    <section style="background-color: #000; color: #fff;">
-        <p class="text-xs font-bold uppercase tracking-[0.2em]">04 — Let's Connect</p>
-        <hr class="my-[2vw] border-none border-t border-white/20" />
-        <div class="flex-grow flex flex-col justify-center">
-            <a href="https://www.linkedin.com/in/maria-fernanda-roncancio-bare%C3%B1o/" target="_blank" class="text-[clamp(2.5rem,6vw,8rem)] font-bold hover:italic transition-all">
-                LINKEDIN →
-            </a>
-            <a href="mailto:tu-correo@eltiempo.com" class="text-[clamp(2.5rem,6vw,8rem)] font-bold hover:italic transition-all">
-                EMAIL →
-            </a>
+                <a href="mailto:maria.roncancio@empresa.com" class="btn-link email">
+                    <i class="fas fa-envelope"></i> Enviar Correo
+                </a>
+
+                <a href="https://wa.me/573000000000" target="_blank" class="btn-link whatsapp">
+                    <i class="fab fa-whatsapp"></i> Chat por WhatsApp
+                </a>
+
+                <a href="tel:+573000000000" class="btn-link phone">
+                    <i class="fas fa-phone"></i> Llamar al Móvil
+                </a>
+            </div>
+
+            <div class="footer">
+                <p>© 2026 Tarjeta Digital Corporativa</p>
+            </div>
         </div>
-        <hr class="my-[2vw] border-none border-t border-white/20" />
-        <p class="mt-auto max-w-[50ch] text-[clamp(1rem,2vw,1.5rem)] font-normal opacity-60">
-            © 2026 Portafolio Digital. Estrategia y Comunicación.
-        </p>
-    </section>
+    </div>
 
 </body>
 </html>
